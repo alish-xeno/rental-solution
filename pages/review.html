@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Review - StudentRooms KTM</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h2>StudentRooms KTM</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="rooms.html">Find Rooms</a></li>
+                <li><a href="review.html" class="active">Write Review</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="register.html" class="btn-register">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Write a Review</h1>
+            <p>Help other students by sharing your rental experience</p>
+        </div>
+    </section>
+
+    <!-- Review Guidelines -->
+    <section class="review-guidelines">
+        <div class="container">
+            <div class="guidelines-box">
+                <h3>📝 Review Guidelines</h3>
+                <ul>
+                    <li>Share your honest experience to help other students</li>
+                    <li>Be respectful and constructive in your feedback</li>
+                    <li>Include details about facilities, location, and landlord behavior</li>
+                    <li>Mention both positive and negative aspects</li>
+                    <li>Reviews are verified before publishing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Form -->
+    <section class="review-form-section">
+        <div class="container">
+            <div class="review-form-container">
+                <h2>Share Your Experience</h2>
+                <form id="reviewForm" class="review-form">
+                    
+                    <div class="form-group">
+                        <label for="reviewerName">Your Name *</label>
+                        <input type="text" id="reviewerName" name="reviewerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewerEmail">Email Address *</label>
+                        <input type="email" id="reviewerEmail" name="reviewerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="propertyName">Property/Room Name *</label>
+                        <input type="text" id="propertyName" name="propertyName" required placeholder="e.g., Single Room Near Ambition College">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="propertyLocation">Location/Area *</label>
+                        <select id="propertyLocation" name="propertyLocation" required>
+                            <option value="">Select Location</option>
+                            <option value="baneshwor">Baneshwor</option>
+                            <option value="maitidevi">Maitidevi</option>
+                            <option value="thamel">Thamel</option>
+                            <option value="new-baneshwor">New Baneshwor</option>
+                            <option value="putalisadak">Putalisadak</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Rating *</label>
+                        <div class="star-rating" data-rating="overallRating">
+                            <span class="star" data-value="1">☆</span>
+                            <span class="star" data-value="2">☆</span>
+                            <span class="star" data-value="3">☆</span>
+                            <span class="star" data-value="4">☆</span>
+                            <span class="star" data-value="5">☆</span>
+                        </div>
+                        <input type="hidden" id="overallRating" name="overallRating" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewText">Your Review *</label>
+                        <textarea id="reviewText" name="reviewText" rows="6" required placeholder="Share your experience about the room, facilities, landlord, location, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Would you recommend this place? *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="recommend" value="yes" required> Yes</label>
+                            <label><input type="radio" name="recommend" value="no"> No</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><input type="checkbox" id="reviewTerms" name="reviewTerms" required> I confirm this review is based on my genuine experience. *</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                    
+                    <p class="form-note">* Your review will be verified before publishing.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Reviews Preview -->
+    <section class="recent-reviews-section">
+        <div class="container">
+            <h2 class="section-title">Recent Reviews from Students</h2>
+            <div class="reviews-grid" id="recentReviews">
+                <!-- Sample Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Stayed for 8 months</p>
+                        </div>
+                        <div class="review-rating">
+                            <span class="rating-stars">★★★★★</span>
+                            <span class="rating-number">5.0</span>
+                        </div>
+                    </div>
+                    <h3>Excellent place near college!</h3>
+                    <p class="review-location">📍 Baneshwor | Single Room</p>
+                    <p class="review-text">Very clean and safe accommodation. The landlord is very cooperative and understanding. WiFi speed is good and water supply is 24/7. Highly recommended for female students.</p>
+                    <div class="review-footer">
+                        <span class="review-date">Posted: Jan 15, 2026</span>
+                        <span class="review-recommend">✓ Recommended</span>
+                    </div>
+                </div>
+
+                <!-- Sample Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Rajesh Tamang</h4>
+                            <p>Stayed for 1 year</p>
+                        </div>
+                        <div class="review-rating">
+                            <span class="rating-stars">★★★★☆</span>
+                            <span class="rating-number">4.0</span>
+                        </div>
+                    </div>
+                    <h3>Good value for money</h3>
+                    <p class="review-location">📍 Maitidevi | Shared Room</p>
+                    <p class="review-text">Affordable room with basic facilities. Room is spacious but could be cleaner. Good location, very close to multiple colleges. Overall satisfied with my stay.</p>
+                    <div class="review-footer">
+                        <span class="review-date">Posted: Jan 10, 2026</span>
+                        <span class="review-recommend">✓ Recommended</span>
+                    </div>
+                </div>
+
+                <!-- Sample Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Anita Gurung</h4>
+                            <p>Stayed for 5 months</p>
+                        </div>
+                        <div class="review-rating">
+                            <span class="rating-stars">★★★☆☆</span>
+                            <span class="rating-number">3.0</span>
+                        </div>
+                    </div>
+                    <h3>Average experience</h3>
+                    <p class="review-location">📍 Thamel | Hostel</p>
+                    <p class="review-text">The location is good but the room maintenance could be better. Water supply is irregular. The mess food quality varies. Suitable for short-term stay only.</p>
+                    <div class="review-footer">
+                        <span class="review-date">Posted: Dec 28, 2025</span>
+                        <span class="review-recommend review-maybe">~ Maybe Recommended</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StudentRooms KTM</h3>
+                    <p>Making student housing affordable, transparent, and safe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="rooms.html">Find Rooms</a></li>
+                        <li><a href="review.html">Write Review</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: info@studentroomsktm.com</p>
+                    <p>Phone: +977-9841234567</p>
+                    <p>Location: Kathmandu, Nepal</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StudentRooms KTM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

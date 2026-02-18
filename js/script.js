@@ -137,6 +137,100 @@ if (registerForm) {
     });
 }
 
+// Review Form - Star Rating System
+document.addEventListener('DOMContentLoaded', function() {
+    const starContainers = document.querySelectorAll('.star-rating');
+    
+    starContainers.forEach(container => {
+        const stars = container.querySelectorAll('.star');
+        const ratingInput = document.getElementById(container.dataset.rating);
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = this.dataset.value;
+                if (ratingInput) {
+                    ratingInput.value = value;
+                }
+                
+                // Update visual state
+                stars.forEach(s => {
+                    if (parseInt(s.dataset.value) <= parseInt(value)) {
+                        s.classList.add('active');
+                        s.textContent = '★';
+                    } else {
+                        s.classList.remove('active');
+                        s.textContent = '☆';
+                    }
+                });
+            });
+            
+            // Hover effect
+            star.addEventListener('mouseenter', function() {
+                const value = this.dataset.value;
+                stars.forEach(s => {
+                    if (parseInt(s.dataset.value) <= parseInt(value)) {
+                        s.textContent = '★';
+                    } else {
+                        s.textContent = '☆';
+                    }
+                });
+            });
+        });
+        
+        // Reset on mouse leave
+        container.addEventListener('mouseleave', function() {
+            const currentValue = ratingInput ? ratingInput.value : 0;
+            stars.forEach(s => {
+                if (parseInt(s.dataset.value) <= parseInt(currentValue)) {
+                    s.textContent = '★';
+                } else {
+                    s.textContent = '☆';
+                }
+            });
+        });
+    });
+});
+
+// Review Form Submission
+const reviewForm = document.getElementById('reviewForm');
+if (reviewForm) {
+    reviewForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const reviewerName = document.getElementById('reviewerName').value;
+        const propertyName = document.getElementById('propertyName').value;
+        const overallRating = document.getElementById('overallRating').value;
+        const reviewText = document.getElementById('reviewText').value;
+        const reviewTerms = document.getElementById('reviewTerms').checked;
+        
+        if (!reviewTerms) {
+            alert('Please confirm that your review is based on genuine experience.');
+            return;
+        }
+        
+        if (!overallRating) {
+            alert('Please provide a rating by clicking on the stars.');
+            return;
+        }
+        
+        if (reviewerName && propertyName && overallRating && reviewText) {
+            const recommend = document.querySelector('input[name="recommend"]:checked');
+            const recommendText = recommend ? (recommend.value === 'yes' ? 'Yes' : 'No') : 'not specified';
+            
+            alert(`Thank you ${reviewerName}!\n\nYour review for "${propertyName}" has been submitted successfully.\n\nRating: ${overallRating} stars\nRecommendation: ${recommendText}\n\nYour review will be verified and published within 24-48 hours to help other students make informed decisions.`);
+            reviewForm.reset();
+            
+            // Reset star ratings visually
+            document.querySelectorAll('.star').forEach(star => {
+                star.classList.remove('active');
+                star.textContent = '☆';
+            });
+        } else {
+            alert('Please fill in all required fields marked with *');
+        }
+    });
+}
+
 // View Details Button Handler
 document.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('btn-small')) {
